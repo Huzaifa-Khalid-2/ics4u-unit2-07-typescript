@@ -7,67 +7,49 @@
  */
 
 class Vehicle {
-  public speed: number = 0;
-  public maxSpeed: number;
-  public numberOfDoors: number;
-  public licensePlate: string;
-  public colour: string;
+  public speed: number = 0
+  public maxSpeed: number
+  public colour: string
 
-  constructor(
-    colour: string,
-    licensePlate: string,
-    numberOfDoors: number,
-    maxSpeed: number
-  ) {
-    this.licensePlate = licensePlate;
-    this.colour = colour;
-    this.maxSpeed = maxSpeed;
-    this.numberOfDoors = numberOfDoors;
+  constructor(colour: string, maxSpeed: number) {
+    this.colour = colour
+    this.maxSpeed = maxSpeed
   }
 
   // getters
   public getSpeed(): number {
-    return this.speed;
+    return this.speed
   }
 
   public getMaxSpeed(): number {
-    return this.maxSpeed;
-  }
-
-  public getNumberOfDoors(): number {
-    return this.numberOfDoors;
-  }
-
-  public getLicensePlate(): string {
-    return this.licensePlate;
+    return this.maxSpeed
   }
 
   public getColour(): string {
-    return this.colour;
-  }
-
-  // setters
-  public setLicensePlate(thePlate: string): void {
-    this.licensePlate = thePlate;
+    return this.colour
   }
 
   public setColour(theColour: string): void {
-    this.colour = theColour;
+    this.colour = theColour
+  }
+
+  public setSpeed(theSpeed: number): void {
+    this.speed = theSpeed
   }
 
   public accelerate(accelerationPower: number, accelerationTime: number): void {
-    this.speed = accelerationPower * accelerationTime + this.speed;
+    this.speed = accelerationPower * accelerationTime + this.speed
 
     if (this.speed > this.maxSpeed) {
-      this.speed = this.maxSpeed;
+      this.speed = this.maxSpeed
     }
   }
 
   public break(breakPower: number, breakTime: number): void {
-    this.speed = this.speed - breakPower * breakTime;
+    this.speed = this.speed - breakPower * breakTime
 
     if (this.speed < 0) {
-      this.speed = 0;
+      this.speed = 0
     }
   }
 
@@ -75,11 +57,9 @@ class Vehicle {
     console.log(
       `        --> Speed: ${this.speed}
         --> MaxSpeed: ${this.maxSpeed}
-        --> Number of doors: ${this.numberOfDoors}
-        --> License Plate: ${this.licensePlate}
         --> Colour: ${this.colour}`
-    );
+    )
   }
 }
 
-export = Vehicle;
+export = Vehicle
